@@ -36,8 +36,11 @@ public class Product {
     @Column(name = "short_description")
     private String shortDescription;
 
-    @Column(name = "imageSrc")
-    private String imageSrc;
+    @Column(name = "imageSrc_character")
+    private String imageSrcCharacter;
+
+    @Column(name = "imageSrc_Cover")
+    private String imageSrcCover;
 
     @Column(nullable = false)
     private String description;
@@ -102,11 +105,19 @@ public class Product {
         return name;
     }
 
-    public String getImageSrc() {
-        return imageSrc;
+    public String getImageSrcCharacter() {
+        return imageSrcCharacter;
     }
 
-    public void setImageSrc(String imageSrc) {
-        this.imageSrc = imageSrc;
+    public String getImageSrcCover() {
+        return imageSrcCover;
+    }
+
+    public void setImageSrcCharacter(String imageSrcCharacter) {
+        this.imageSrcCharacter = imageSrcCharacter;
+    }
+
+    public void setImageSrcCover(String imageSrcCover) {
+        this.imageSrcCover = imageSrcCover;
     }
 }

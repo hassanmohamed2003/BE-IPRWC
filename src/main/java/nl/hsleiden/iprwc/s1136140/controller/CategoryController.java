@@ -28,13 +28,13 @@ public class CategoryController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+//    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<List<Category>> getCategories(){
         return ResponseEntity.ok().body(categoryDAO.getAll());
     }
 
     @PostMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+//    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Category> createCategory(@RequestBody Category category){
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body(categoryDAO.save(category));
@@ -44,7 +44,7 @@ public class CategoryController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+//    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Category> getCategoryById(@AuthenticationPrincipal User user, @PathVariable("id") String id){
         Optional<Category> optionalCategory = categoryDAO.getById(id);
 
@@ -55,7 +55,7 @@ public class CategoryController {
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+//    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Category> updateCategory(@PathVariable String id, @RequestBody Category category) {
         try {
             return ResponseEntity.ok().body(categoryDAO.update(id, category));
@@ -65,7 +65,7 @@ public class CategoryController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+//    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Category> deleteCategory(@PathVariable String id) {
         try {
             categoryDAO.deleteById(id);
@@ -76,7 +76,7 @@ public class CategoryController {
     }
 
     @PatchMapping("/{id}")
-    @PreAuthorize("hasAuthority('ADMIN')")
+//    @PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<?> editCategory(@PathVariable("id") String id, @RequestBody Map<Object, Object> categoryToUpdate) {
 
         Category category = categoryDAO.getById(id).orElseThrow(()->new RecordNotFoundException("Category with id: " + id + " not found"));
