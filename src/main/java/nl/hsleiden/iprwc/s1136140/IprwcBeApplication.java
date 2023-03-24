@@ -19,7 +19,7 @@ public class IprwcBeApplication extends SpringBootServletInitializer {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://localhost:4200").allowedMethods("PUT", "DELETE", "PATCH", "POST", "GET");
+                registry.addMapping("/**").allowedOrigins("http://localhost:4200", "http://webshop-cards.s3-website.eu-north-1.amazonaws.com").allowedMethods("PUT", "DELETE", "PATCH", "POST", "GET");
             }
         };
     }
